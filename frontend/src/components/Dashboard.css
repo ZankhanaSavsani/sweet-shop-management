@@ -1,0 +1,157 @@
+/* Dashboard.css - Modern Sweet Shop Dashboard */
+
+.dashboard-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffe4ec 0%, #e0ffe7 50%, #fff9db 100%);
+  padding-bottom: 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 1.5rem 2rem;
+  background: transparent;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.header-logo {
+  font-size: 2.2rem;
+  color: #e879f9;
+}
+.header-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #a21caf;
+  letter-spacing: 1px;
+}
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fff9db;
+  padding: 0.5rem 1.2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 8px rgba(232, 121, 249, 0.08);
+}
+.user-icon {
+  font-size: 2rem;
+  color: #a7f3d0;
+}
+.user-name {
+  font-weight: 600;
+  color: #e879f9;
+}
+.user-email {
+  font-size: 0.95rem;
+  color: #6d28d9;
+}
+
+.search-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px rgba(232, 121, 249, 0.10), 0 2px 8px rgba(0,0,0,0.06);
+  padding: 1.5rem 2rem;
+  align-items: flex-end;
+}
+.search-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #a7a7a7;
+  pointer-events: none;
+}
+.search-input {
+  padding: 0.7rem 1rem 0.7rem 2.2rem;
+  border: 1.5px solid #e0ffe7;
+  border-radius: 0.75rem;
+  background: #fff9db;
+  font-size: 1rem;
+  color: #3b0764;
+  transition: border 0.2s, box-shadow 0.2s;
+  height: 44px;
+  min-width: 140px;
+  margin-right: 0.2rem;
+}
+.search-input:focus {
+  border: 1.5px solid #e879f9;
+  outline: none;
+  box-shadow: 0 0 0 2px #f3e8ff;
+}
+.search-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.search-btn.primary {
+  background: linear-gradient(90deg, #e879f9 0%, #a7f3d0 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(232, 121, 249, 0.10);
+}
+.search-btn.primary:hover {
+  background: linear-gradient(90deg, #a7f3d0 0%, #e879f9 100%);
+}
+.search-btn.reset {
+  background: #fff1f2;
+  color: #e879f9;
+  border: 1.5px solid #e879f9;
+}
+.search-btn.reset:hover {
+  background: #e879f9;
+  color: #fff;
+}
+
+.sweet-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  padding: 0 2rem;
+}
+@media (min-width: 640px) {
+  .sweet-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .sweet-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.loading {
+  text-align: center;
+  color: #a21caf;
+  font-size: 1.2rem;
+  padding: 2rem 0;
+}
+.error-msg {
+  text-align: center;
+  color: #f87171;
+  font-size: 1.1rem;
+  padding: 2rem 0;
+}

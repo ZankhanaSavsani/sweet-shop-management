@@ -54,32 +54,66 @@ const SweetList: React.FC = () => {
       <h2>Available Sweets</h2>
       
       <div className="search-filters">
-        <input
-          type="text"
-          placeholder="Search by name"
-          value={searchName}
-          onChange={(e) => setSearchName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Search by category"
-          value={searchCategory}
-          onChange={(e) => setSearchCategory(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Min price"
-          value={minPrice}
-          onChange={(e) => setMinPrice(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Max price"
-          value={maxPrice}
-          onChange={(e) => setMaxPrice(e.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
-        <button onClick={fetchSweets}>Clear</button>
+        <div className="form-group">
+          <label>🔍 Search by Name</label>
+          <div className="input-container">
+            <input
+              type="text"
+              placeholder="Enter sweet name"
+              value={searchName}
+              onChange={(e) => setSearchName(e.target.value)}
+            />
+            <span className="input-icon">🔍</span>
+          </div>
+        </div>
+        
+        <div className="form-group">
+          <label>🏷️ Category</label>
+          <div className="input-container">
+            <input
+              type="text"
+              placeholder="Enter category"
+              value={searchCategory}
+              onChange={(e) => setSearchCategory(e.target.value)}
+            />
+            <span className="input-icon">🏷️</span>
+          </div>
+        </div>
+        
+        <div className="form-group">
+          <label>💰 Min Price</label>
+          <div className="input-container">
+            <input
+              type="number"
+              placeholder="0.00"
+              value={minPrice}
+              onChange={(e) => setMinPrice(e.target.value)}
+              min="0"
+              step="0.01"
+            />
+            <span className="input-icon">💰</span>
+          </div>
+        </div>
+        
+        <div className="form-group">
+          <label>💎 Max Price</label>
+          <div className="input-container">
+            <input
+              type="number"
+              placeholder="999.99"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
+              min="0"
+              step="0.01"
+            />
+            <span className="input-icon">💎</span>
+          </div>
+        </div>
+        
+        <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+          <button onClick={handleSearch}>🔍 Search</button>
+          <button onClick={fetchSweets}>🔄 Clear</button>
+        </div>
       </div>
       
       <div className="sweets-grid">

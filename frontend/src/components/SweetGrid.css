@@ -1,0 +1,34 @@
+/* SweetGrid.css - Responsive grid for sweet cards */
+
+.sweet-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .sweet-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sweet-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.sweet-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(232, 121, 249, 0.10), 0 1.5px 6px rgba(0,0,0,0.04);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 260px;
+  transition: box-shadow 0.2s;
+}
+.sweet-card:hover {
+  box-shadow: 0 8px 32px rgba(232, 121, 249, 0.18), 0 2px 8px rgba(0,0,0,0.08);
+}

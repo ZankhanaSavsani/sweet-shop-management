@@ -1,40 +1,20 @@
 const express = require('express');
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const AuthService = require('../services/authService');
 const router = express.Router();
 
 // Register
 router.post('/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    
-    const userExists = await User.findOne({ email });
-    if (userExists) {
-      return res.status(400).json({ message: 'User already exists' });
-    }
-    
-    const user = await User.create({ username, email, password });
-    
-    const token = jwt.sign(
-      { id: user._id }, 
-      process.env.JWT_SECRET, 
-      { expiresIn: process.env.JWT_EXPIRES_IN }
-    );
-    
+    const result = await AuthService.register({ username, email, password });
     res.status(201).json({
       status: 'success',
-      token,
-      data: {
-        user: {
-          id: user._id,
-          username: user.username,
-          email: user.email,
-          isAdmin: user.isAdmin
-        }
-      }
+      token: result.token,
+      data: { user: result.user }
     });
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    const status = error.status || 400;
+    res.status(status).json({ message: error.message });
   }
 });
 

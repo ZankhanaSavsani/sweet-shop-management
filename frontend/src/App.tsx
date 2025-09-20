@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import Login from './components/Login';
+import SweetList from './components/SweetList';
 import './App.css';
 
-function App() {
+const AppContent: React.FC = () => {
+  const { user, loading } = useAuth();
+  const [currentView, setCurrentView] = useState<'login' | 'sweets'>('login');
+
+  if (loading) {
+    return (
+      <div className="App">
+        <div className="loading">Loading...</div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="App">
+        <Login />
+      </div>
+    );
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+      <div className="sweet-list-container">
+        <h2>🍭 Sweet Shop Management</h2>
+        <p style={{ textAlign: 'center', color: '#666', marginBottom: '20px' }}>
+          Welcome back, {user.username}! Manage your sweet inventory below.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <SweetList />
+      </div>
     </div>
   );
-}
+};
+
+const App: React.FC = () => (
+  <AuthProvider>
+    <AppContent />
+  </AuthProvider>
+);
 
 export default App;

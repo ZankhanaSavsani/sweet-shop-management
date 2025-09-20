@@ -1,0 +1,75 @@
+/* FormContainer.css - Modern sweet shop themed form */
+
+body, .form-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffe4ec 0%, #e0ffe7 50%, #fff9db 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px rgba(232, 121, 249, 0.10), 0 2px 8px rgba(0,0,0,0.06);
+  padding: 2rem 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  margin: 2rem auto;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container:hover {
+  box-shadow: 0 8px 32px rgba(232, 121, 249, 0.18), 0 4px 16px rgba(0,0,0,0.10);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e879f9;
+  margin-bottom: 1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1.5px solid #e0ffe7;
+  border-radius: 0.75rem;
+  background: #fff9db;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+.form-input:focus {
+  border: 1.5px solid #e879f9;
+  outline: none;
+}
+
+.form-button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(90deg, #e879f9 0%, #a7f3d0 100%);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(232, 121, 249, 0.10);
+}
+.form-button:hover {
+  background: linear-gradient(90deg, #a7f3d0 0%, #e879f9 100%);
+  box-shadow: 0 4px 16px rgba(232, 121, 249, 0.18);
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    width: 90%;
+    padding: 1.25rem 0.5rem;
+  }
+}
